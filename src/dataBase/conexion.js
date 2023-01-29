@@ -1,11 +1,13 @@
+const { config } = require('dotenv')
 const { Pool } = require('pg')
+require('dotenv').config()
 
 const credentials = {
-    host: 'postgresql-blacksam.alwaysdata.net',
-    user: 'blacksam',
-    port: 5432,
-    database: 'blacksam_softjobs',
-    password: 'blacksam1234..',
+    host: process.env.HOST,
+    user: process.env.USER,
+    port: process.env.PORTDB,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
     allowExitOnIdle: true
 }
 
