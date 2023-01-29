@@ -12,4 +12,3 @@ app.use(express.static('public'))
 
 app.use('/', indexRoutes)
 app.listen(PORT, message(PORT) )
-//admin@desafiolatam.cl
