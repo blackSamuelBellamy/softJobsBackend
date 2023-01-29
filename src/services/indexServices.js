@@ -12,6 +12,8 @@ const verificarCredenciales = async (email, password) => {
     const values = [email]
     const consulta = "SELECT * FROM usuarios WHERE email = $1"
     const { rows: [usuario], rowCount } = await pool.query(consulta, values)
+    if(!rowCount) throw {code: 404, message: 'No existe ese usuario...'}
+    
     const { password: passwordEncriptada } = usuario
     const passwordEsCorrecta = bcrypt.compareSync(password, passwordEncriptada)
     if (!passwordEsCorrecta || !rowCount)
